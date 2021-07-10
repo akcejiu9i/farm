@@ -1,4 +1,5 @@
 <?php
+namespace App;
 
 class Animal {
 	public $name;

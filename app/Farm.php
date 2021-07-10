@@ -1,11 +1,16 @@
 <?php
+namespace App;
 
 class Farm {
 	private $animals = [];
 	private $totalProduction = [];
 
 	public function addAnimal($animal) {
-		$this->animals[] = $animal;
+		if (is_subclass_of($animal, 'App\Animal')) {
+			$this->animals[] = $animal;
+			return true;
+		}
+		return false;
 	}
 
 	public function getCountAnimals() {

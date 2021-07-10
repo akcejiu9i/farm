@@ -1,4 +1,5 @@
 <?php
+namespace App;
 
 class Cow extends Animal {
 	public $name = 'Корова';

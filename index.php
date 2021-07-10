@@ -1,18 +1,14 @@
 <?php
-include 'Farm.php';
-include 'Animal.php';
-include 'Cow.php';
-include 'Chicken.php';
+namespace App;
+require 'vendor/autoload.php';
 
 $farm = new Farm();
 
 for ($i = 0; $i < 10; $i++) {
-	$animal = new Cow();
-	$farm->addAnimal($animal);
+	$farm->addAnimal(new Cow());
 }
 for ($i = 0; $i < 20; $i++) {
-	$animal = new Chicken();
-	$farm->addAnimal($animal);
+	$farm->addAnimal(new Chicken());
 }
 
 echo 'Кол-во животных на ферме:<br>';
@@ -21,7 +17,7 @@ foreach ($farm->getCountAnimals() as $name => $count) {
 }
 
 for ($i = 0; $i < 7; $i++) {
-	$farm->collectProduction($animal);
+	$farm->collectProduction();
 }
 
 echo '<br>Кол-во собранной продукции:<br>';
@@ -30,11 +26,9 @@ foreach ($farm->getCountProduction() as $name => $count) {
 }
 
 for ($i = 0; $i < 5; $i++) {
-	$animal = new Chicken();
-	$farm->addAnimal($animal);
+	$farm->addAnimal(new Chicken());
 }
-$animal = new Cow();
-$farm->addAnimal($animal);
+$farm->addAnimal(new Cow());
 
 echo '<br>Кол-во животных на ферме:<br>';
 foreach ($farm->getCountAnimals() as $name => $count) {
@@ -42,7 +36,7 @@ foreach ($farm->getCountAnimals() as $name => $count) {
 }
 
 for ($i = 0; $i < 7; $i++) {
-	$farm->collectProduction($animal);
+	$farm->collectProduction();
 }
 echo '<br>Кол-во собранной продукции:<br>';
 foreach ($farm->getCountProduction() as $name => $count) {
